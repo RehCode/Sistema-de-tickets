@@ -7,7 +7,9 @@
     <title>Nuevo Ticket</title>
 </head>
 <body>
+    <h2>Nuevo ticket</h2>
     <form id="form1" runat="server">
+
         <div>
             <asp:Label ID="lbInfoTitulo" runat="server" Text="Titulo:"></asp:Label>
             <asp:TextBox ID="TextBoxTitulo" runat="server"></asp:TextBox>
@@ -32,8 +34,9 @@
             </asp:DropDownList>
         </p>
         <p>
-            <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" />
+            <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" OnClick="ButtonEnviar_Click" />
         </p>
+        <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
     </form>
 </body>
 </html>
