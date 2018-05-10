@@ -29,7 +29,6 @@ namespace WebApplicationSistemaTickets
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
 
-                   
                     DropDownListDepartamentos.DataSource = tabla;
                     DropDownListDepartamentos.DataTextField = "departamento";
                     DropDownListDepartamentos.DataValueField = "departamento_id";
@@ -48,6 +47,7 @@ namespace WebApplicationSistemaTickets
                     SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
+
                     DropDownListCategorias.DataSource = tabla;
                     DropDownListCategorias.DataTextField = "categoria";
                     DropDownListCategorias.DataValueField = "categoria_id";
@@ -95,8 +95,24 @@ namespace WebApplicationSistemaTickets
 
             if (errores.Length == 0)
             {
-                LabelError.Text = "Ticket enviado";
-            } else
+                using (SqlConnection conexionDB = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
+                {
+
+                    SqlCommand cmd = new SqlCommand("nuevoTicket", conexionDB);
+                    cmd.Parameters.AddWithValue("@titulo", titulo);
+                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                    cmd.Parameters.AddWithValue("@departamento_id", departamento_id);
+                    cmd.Parameters.AddWithValue("@nombre_interesado", interesado);
+                    cmd.Parameters.AddWithValue("@categoria_id", categoria_id);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conexionDB.Open();
+                    cmd.ExecuteNonQuery();
+                
+                    LabelError.Text = "Ticket enviado";
+                }
+
+            }
+            else
             {
                 LabelError.Text = errores.ToString();
             }
