@@ -4,12 +4,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Nuevo Ticket</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lbInfoTitulo" runat="server" Text="Titulo:"></asp:Label>
+            <asp:TextBox ID="TextBoxTitulo" runat="server"></asp:TextBox>
         </div>
+
+        <p>
+            <asp:Label ID="lblInfoDescripcion" runat="server" Text="Descripcion:"></asp:Label>
+            <asp:TextBox ID="TextBoxDescripcion" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label Text="Departamento" runat="server" />
+            <asp:DropDownList ID="DropDownListDepartamentos" runat="server">
+            </asp:DropDownList>
+        </p>
+        <p>
+            <asp:Label Text="Interesado" runat="server" />
+            <asp:TextBox ID="TextBoxInteresado" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label Text="Categoria" runat="server" />
+            <asp:DropDownList ID="DropDownListCategorias" runat="server">
+            </asp:DropDownList>
+        </p>
+        <p>
+            <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" />
+        </p>
     </form>
 </body>
 </html>

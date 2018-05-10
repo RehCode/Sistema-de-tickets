@@ -75,16 +75,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="administrador.aspx" />
     <Content Include="nuevoTicket.aspx" />
+    <Content Include="principal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="administrador.aspx.cs">
+      <DependentUpon>administrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador.aspx.designer.cs">
+      <DependentUpon>administrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="nuevoTicket.aspx.cs">
       <DependentUpon>nuevoTicket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="nuevoTicket.aspx.designer.cs">
       <DependentUpon>nuevoTicket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="principal.aspx.cs">
+      <DependentUpon>principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="principal.aspx.designer.cs">
+      <DependentUpon>principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
