@@ -78,6 +78,7 @@
     <Content Include="administrador.aspx" />
     <Content Include="nuevoTicket.aspx" />
     <Content Include="principal.aspx" />
+    <Content Include="responsable.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +104,13 @@
       <DependentUpon>principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="responsable.aspx.cs">
+      <DependentUpon>responsable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="responsable.aspx.designer.cs">
+      <DependentUpon>responsable.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
