@@ -11,9 +11,9 @@
         <div>
             <asp:Label ID="lblInfoMostrar" runat="server" Text="Mostrar"></asp:Label>
         </div>
-        <asp:Button ID="ButtonTodos" runat="server" Text="Todos" />
+        <asp:Button ID="ButtonTodos" runat="server" Text="Todos" OnClick="ButtonTodos_Click" />
         <asp:Button ID="ButtonSinAsignar" runat="server" Text="Sin asignar" />
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="GridViewTickets" runat="server">
         </asp:GridView>
     </form>
 </body>
