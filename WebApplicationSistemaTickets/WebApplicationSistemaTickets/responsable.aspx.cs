@@ -56,18 +56,11 @@ namespace WebApplicationSistemaTickets
             using (SqlConnection conexionDB = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
             {
                 string query = "SELECT [ticket_id]"
-                            + " ,[titulo]"
-                            + " ,[descripcion]"
-                            + " ,[departamentos].[departamento]"
-                            + " ,[nombre_interesado]"
-                            + " ,[categorias].[categoria_id]"
+                            + " ,[categoria_id]"
                             + " ,[responsable_id]"
-                            + "  FROM ((tickets"
-                            + "  inner join departamentos on tickets.departamento_id = departamentos.departamento_id)"
-                            + "  inner join categorias on tickets.categoria_id = categorias.categoria_id"
-                            + "  )"
-                            + "  where ticket_id=@ticket_id"
-                            + "  order by fecha asc";
+                            + " ,[comentario_tecnico]"
+                            + "  FROM tickets"
+                            + "  where ticket_id=@ticket_id";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@ticket_id", ticket_id);
@@ -78,14 +71,15 @@ namespace WebApplicationSistemaTickets
                 DataTable tabla = new DataTable();
                 adaptador.Fill(tabla);
                 DataRow fila = tabla.Rows[0];
-                lblTitulo.Text = (string)fila["titulo"];
-                lblDescripcion.Text = (string)fila["descripcion"];
-                lblDepartamento.Text = (string)fila["departamento"];
-                lblInteresado.Text = (string)fila["nombre_interesado"];
+                lblTitulo.Text = GridViewTickets.SelectedRow.Cells[2].Text;
+                lblDescripcion.Text = GridViewTickets.SelectedRow.Cells[3].Text;
+                lblDepartamento.Text = GridViewTickets.SelectedRow.Cells[5].Text;
+                lblInteresado.Text = GridViewTickets.SelectedRow.Cells[6].Text;
 
                 DropDownListCategorias.SelectedIndex = (int)fila["categoria_id"] - 1;
                 DropDownListResponsable.SelectedIndex = (int)fila["responsable_id"] - 1;
 
+                TextBoxComentario.Text = (fila["comentario_tecnico"] == DBNull.Value) ? string.Empty : fila["comentario_tecnico"].ToString();
             }
         }
     }
