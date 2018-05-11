@@ -49,9 +49,11 @@ namespace WebApplicationSistemaTickets
             }
         }
 
+
         protected void GridViewTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             int ticket_id = Convert.ToInt32(GridViewTickets.SelectedRow.Cells[1].Text);
+            Session["ticket_id"] = ticket_id;
 
             using (SqlConnection conexionDB = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
             {
@@ -80,7 +82,40 @@ namespace WebApplicationSistemaTickets
                 DropDownListResponsable.SelectedIndex = (int)fila["responsable_id"] - 1;
 
                 TextBoxComentario.Text = (fila["comentario_tecnico"] == DBNull.Value) ? string.Empty : fila["comentario_tecnico"].ToString();
+                CheckBoxSolucionado.Checked = false;
             }
+        }
+
+        protected void ButtonEnviar_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conexionUpdateTicket = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
+            {
+                int ticket_id = (int) Session["ticket_id"];
+
+                string query = "update tickets"
+                + " set categoria_id=@categoria_id, responsable_id=@responsable_id, solucionado=@solucionado, comentario_tecnico=@comentario_tecnico, fecha_solucionado=@fecha_solucionado"
+                + " where ticket_id=@ticket_id";
+                SqlCommand cmdUpdate = new SqlCommand(query, conexionUpdateTicket);
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.Parameters.AddWithValue("@ticket_id", ticket_id);
+                cmdUpdate.Parameters.AddWithValue("@categoria_id", DropDownListCategorias.SelectedIndex + 1);
+                cmdUpdate.Parameters.AddWithValue("@responsable_id", DropDownListResponsable.SelectedIndex + 1);
+                cmdUpdate.Parameters.AddWithValue("@solucionado", CheckBoxSolucionado.Checked);
+                cmdUpdate.Parameters.AddWithValue("@comentario_tecnico", TextBoxComentario.Text);
+
+                if (CheckBoxSolucionado.Checked)
+                {
+                    cmdUpdate.Parameters.AddWithValue("@fecha_solucionado", DateTime.Now);
+                } else
+                {
+                    cmdUpdate.Parameters.AddWithValue("@fecha_solucionado", DBNull.Value);
+                }
+
+                conexionUpdateTicket.Open();
+                cmdUpdate.ExecuteNonQuery();
+                LabelError.Text = "Enviado";
+            }
+
         }
     }
 }

@@ -76,7 +76,7 @@
                 <asp:TextBox runat="server" ID="TextBoxComentario" />
             </p>
             <p>
-                <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" />
+                <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" OnClick="ButtonEnviar_Click" />
             </p>
             <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
         </div>
