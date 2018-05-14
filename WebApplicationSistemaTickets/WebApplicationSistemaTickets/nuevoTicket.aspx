@@ -37,6 +37,17 @@
             <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" OnClick="ButtonEnviar_Click" />
         </p>
         <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
+
+        <div>
+         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nuevoTicket.aspx">Nuevo Ticket</asp:HyperLink>
+        <p>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/responsable.aspx">Responsables</asp:HyperLink>
+        </p>
+        <p>
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador.aspx">Administrar</asp:HyperLink>
+        </p>
+        </div>
+
     </form>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <body>
     <h2>Asignacion y actualizacion de tickets</h2>
     <form id="form1" runat="server">
-        
+
         <div>
             <asp:Button ID="ButtonSinSolucion" runat="server" Text="Mostrar" OnClick="ButtonSinSolucion_Click" />
             <asp:GridView ID="GridViewTickets" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridViewTickets_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -80,6 +80,17 @@
             </p>
             <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
         </div>
+
+        <div>
+         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nuevoTicket.aspx">Nuevo Ticket</asp:HyperLink>
+        <p>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/responsable.aspx">Responsables</asp:HyperLink>
+        </p>
+        <p>
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador.aspx">Administrar</asp:HyperLink>
+        </p>
+        </div>
+
 
     </form>
 </body>

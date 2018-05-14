@@ -15,6 +15,18 @@
         <asp:Button ID="ButtonSinAsignar" runat="server" Text="Sin asignar" />
         <asp:GridView ID="GridViewTickets" runat="server">
         </asp:GridView>
+
+        <div>
+         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nuevoTicket.aspx">Nuevo Ticket</asp:HyperLink>
+        <p>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/responsable.aspx">Responsables</asp:HyperLink>
+        </p>
+        <p>
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador.aspx">Administrar</asp:HyperLink>
+        </p>
+        </div>
+
+
     </form>
 </body>
 </html>
