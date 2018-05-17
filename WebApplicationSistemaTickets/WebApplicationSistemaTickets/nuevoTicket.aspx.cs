@@ -69,27 +69,27 @@ namespace WebApplicationSistemaTickets
 
             if (titulo.Equals(""))
             {
-                errores.Append("Se requiere titulo");
+                errores.Append("Falta <strong>titulo</strong>");
                 errores.Append("<br>");
             }
             if (descripcion.Equals(""))
             {
-                errores.Append("Se requiere descripcion");
+                errores.Append("Falta <strong>descripcion</strong>");
                 errores.Append("<br>");
             }
             if (departamento_id == 1)
             {
-                errores.Append("Se requiere especificar un departamento");
+                errores.Append("Falta especificar un <strong>departamento</strong>");
                 errores.Append("<br>");
             }
             if (interesado.Equals(""))
             {
-                errores.Append("Se requiere nombre del interesado");
+                errores.Append("Falta nombre del <strong>interesado</strong>");
                 errores.Append("<br>");
             }
             if (categoria_id == 1)
             {
-                errores.Append("Se requiere especificar una categoria");
+                errores.Append("Falta especificar una <strong>categoria</strong>");
                 errores.Append("<br>");
             }
 
@@ -108,13 +108,18 @@ namespace WebApplicationSistemaTickets
                     conexionDB.Open();
                     cmd.ExecuteNonQuery();
                 
-                    LabelError.Text = "Ticket enviado";
+                    LabelExito.Text = "Ticket <strong>enviado</strong>";
+                    PanelExito.Visible = true;
+                    PanelError.Visible = false;
+                    TextBoxInteresado.Text = "";
                 }
 
             }
             else
             {
                 LabelError.Text = errores.ToString();
+                PanelError.Visible = true;
+                PanelExito.Visible = false;
             }
             
         }

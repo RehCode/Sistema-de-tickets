@@ -1,53 +1,55 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nuevoTicket.aspx.cs" Inherits="WebApplicationSistemaTickets.nuevoTicket" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nuevoTicket.aspx.cs" Inherits="WebApplicationSistemaTickets.nuevoTicket" MasterPageFile="MasterPage.Master" Title="Nuevo Ticket" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Nuevo Ticket</title>
-</head>
-<body>
-    <h2>Nuevo ticket</h2>
-    <form id="form1" runat="server">
+    <div class="container">
+        <h2>Nuevo ticket</h2>
 
-        <div>
-            <asp:Label ID="lbInfoTitulo" runat="server" Text="Titulo:"></asp:Label>
-            <asp:TextBox ID="TextBoxTitulo" runat="server"></asp:TextBox>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="TextBoxTitulo">Titulo</label>
+                <asp:TextBox ID="TextBoxTitulo" runat="server" CssClass="form-control" placeholder="Titulo del ticket; descripcion corta"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="DropDownListCategorias" class="control-label">Categoria:</label>
+                <asp:DropDownList ID="DropDownListCategorias" runat="server" CssClass="form-control"></asp:DropDownList>
+            </div>
         </div>
 
-        <p>
-            <asp:Label ID="lblInfoDescripcion" runat="server" Text="Descripcion:"></asp:Label>
-            <asp:TextBox ID="TextBoxDescripcion" runat="server"></asp:TextBox>
-        </p>
-        <p>
-            <asp:Label Text="Departamento" runat="server" />
-            <asp:DropDownList ID="DropDownListDepartamentos" runat="server">
-            </asp:DropDownList>
-        </p>
-        <p>
-            <asp:Label Text="Interesado" runat="server" />
-            <asp:TextBox ID="TextBoxInteresado" runat="server"></asp:TextBox>
-        </p>
-        <p>
-            <asp:Label Text="Categoria" runat="server" />
-            <asp:DropDownList ID="DropDownListCategorias" runat="server">
-            </asp:DropDownList>
-        </p>
-        <p>
-            <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" OnClick="ButtonEnviar_Click" />
-        </p>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="TextBoxDescripcion" class="control-label">Descripcion:</label>
+                <asp:TextBox ID="TextBoxDescripcion" runat="server" Rows="7" Columns="8" CssClass="form-control" TextMode="MultiLine" ToolTip="Descripcion detallada del ticket" placeholder="Descripcion detallada del ticket"></asp:TextBox>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="DropDownListDepartamentos">Departamento:</label>
+                    <asp:DropDownList ID="DropDownListDepartamentos" runat="server" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="TextBoxInteresado" class="control-label">Interesado:</label>
+                    <asp:TextBox ID="TextBoxInteresado" runat="server" CssClass="form-control" placeholder="Nombre del interesado"></asp:TextBox>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" OnClick="ButtonEnviar_Click" CssClass="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <asp:Panel ID="PanelError" runat="server" CssClass="alert alert-warning" Visible="False">
         <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
+    </asp:Panel>
 
-        <div>
-         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/nuevoTicket.aspx">Nuevo Ticket</asp:HyperLink>
-        <p>
-            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/responsable.aspx">Responsables</asp:HyperLink>
-        </p>
-        <p>
-            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador.aspx">Administrar</asp:HyperLink>
-        </p>
-        </div>
+    <asp:Panel ID="PanelExito" runat="server" CssClass="alert alert-success" Visible="False">
+        <asp:Label ID="LabelExito" runat="server" Text="Error:"></asp:Label>
+    </asp:Panel>
 
-    </form>
-</body>
-</html>
+
+</asp:Content>

@@ -13,24 +13,6 @@ namespace WebApplicationSistemaTickets {
     public partial class nuevoTicket {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// lbInfoTitulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbInfoTitulo;
-        
-        /// <summary>
         /// TextBoxTitulo control.
         /// </summary>
         /// <remarks>
@@ -40,13 +22,13 @@ namespace WebApplicationSistemaTickets {
         protected global::System.Web.UI.WebControls.TextBox TextBoxTitulo;
         
         /// <summary>
-        /// lblInfoDescripcion control.
+        /// DropDownListCategorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfoDescripcion;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategorias;
         
         /// <summary>
         /// TextBoxDescripcion control.
@@ -76,15 +58,6 @@ namespace WebApplicationSistemaTickets {
         protected global::System.Web.UI.WebControls.TextBox TextBoxInteresado;
         
         /// <summary>
-        /// DropDownListCategorias control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategorias;
-        
-        /// <summary>
         /// ButtonEnviar control.
         /// </summary>
         /// <remarks>
@@ -92,6 +65,15 @@ namespace WebApplicationSistemaTickets {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonEnviar;
+        
+        /// <summary>
+        /// PanelError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelError;
         
         /// <summary>
         /// LabelError control.
@@ -103,30 +85,21 @@ namespace WebApplicationSistemaTickets {
         protected global::System.Web.UI.WebControls.Label LabelError;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// PanelExito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Panel PanelExito;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// LabelExito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
-        
-        /// <summary>
-        /// HyperLink3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.Label LabelExito;
     }
 }
