@@ -5,7 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
     <div class="container">
-        <h2>Nuevo ticket</h2>
+        <div class="page-header">
+            <h1>Crear nuevo ticket</h1>
+        </div>
 
         <div class="row">
             <div class="form-group col-md-6">
