@@ -26,14 +26,14 @@ namespace WebApplicationSistemaTickets
                             + " ,[descripcion]"
                             + " ,[fecha]"
                             + " ,[departamentos].[departamento]"
-                            + " ,[nombre_interesado]"
+                            + " ,[nombre_interesado] as 'nombre del interesado'"
                             + " ,[categorias].[categoria]"
                             + " ,[responsables].[nombre] as responsable"
                             + "  FROM ((tickets"
                             + "  inner join departamentos on tickets.departamento_id = departamentos.departamento_id)"
                             + "  inner join categorias on tickets.categoria_id = categorias.categoria_id"
                             + "  ) inner join responsables on tickets.responsable_id = responsables.responsable_id"
-                            + "  where solucionado=1"
+                            + "  where solucionado=0"
                             + "  order by fecha asc";
                 SqlCommand cmd = new SqlCommand(query);
                 cmd.CommandType = CommandType.Text;
@@ -54,6 +54,13 @@ namespace WebApplicationSistemaTickets
         {
             GridViewTickets.PageIndex = e.NewPageIndex;
             GridViewTickets.DataBind();
+        }
+
+        protected void GridViewTickets_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            int ticket_id = Convert.ToInt32(GridViewTickets.SelectedRow.Cells[1].Text);
+            Session["ticket_id"] = ticket_id;
+            Response.Redirect("detalleTicket.aspx");
         }
     }
 }
