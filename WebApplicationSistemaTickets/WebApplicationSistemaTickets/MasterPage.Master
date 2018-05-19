@@ -32,7 +32,7 @@
             <li class="active"><a href="principal.aspx">Inicio</a></li>
             <li><a href="nuevoTicket.aspx">Nuevo ticket</a></li>
             <li><a href="responsable.aspx">Responsables</a></li>
-            <li><a href="responsable.aspx">Identificarse</a></li>
+            <li><a href="Tickets.aspx">Tickets</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
