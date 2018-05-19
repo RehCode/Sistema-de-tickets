@@ -16,7 +16,7 @@
                 <asp:ListItem Text="Alejandra" />
             </asp:DropDownList>
         </p>
-        <asp:GridView ID="GridViewTickets" runat="server" AllowPaging="True" OnPageIndexChanging="GridViewTickets_PageIndexChanging" PageSize="15" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridViewTickets_SelectedIndexChanging">
+        <asp:GridView ID="GridViewTickets" runat="server" PageSize="5" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridViewTickets_SelectedIndexChanged">
         </asp:GridView>
     </div>
 

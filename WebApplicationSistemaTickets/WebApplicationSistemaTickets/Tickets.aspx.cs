@@ -46,17 +46,12 @@ namespace WebApplicationSistemaTickets
                 GridViewTickets.AutoGenerateColumns = true;
                 GridViewTickets.DataSource = ds.Tables[0];
                 GridViewTickets.DataBind();
+
+
             }
         }
 
-
-        protected void GridViewTickets_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridViewTickets.PageIndex = e.NewPageIndex;
-            GridViewTickets.DataBind();
-        }
-
-        protected void GridViewTickets_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void GridViewTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             int ticket_id = Convert.ToInt32(GridViewTickets.SelectedRow.Cells[1].Text);
             Session["ticket_id"] = ticket_id;
