@@ -44,7 +44,7 @@ namespace WebApplicationSistemaTickets
                     DataRow fila = tabla.Rows[0];
 
                     lblTitulo.Text = (string)fila["titulo"];
-                    lblDescripcion.Text = (string)fila["descripcion"];
+                    lblDescripcion.Text = (fila["descripcion"] == DBNull.Value) ? string.Empty : fila["descripcion"].ToString();
                     lblDepartamento.Text = (string)fila["departamento"];
                     lblInteresado.Text = (string)fila["nombre_interesado"];
 
@@ -55,6 +55,40 @@ namespace WebApplicationSistemaTickets
                     CheckBoxSolucionado.Checked = false;
                 }
             }
+        }
+
+        protected void ButtonEnviar_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conexionUpdateTicket = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
+            {
+
+                string query = "update tickets"
+                + " set categoria_id=@categoria_id, responsable_id=@responsable_id, solucionado=@solucionado, comentario_tecnico=@comentario_tecnico, fecha_solucionado=@fecha_solucionado"
+                + " where ticket_id=@ticket_id";
+                SqlCommand cmdUpdate = new SqlCommand(query, conexionUpdateTicket);
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.Parameters.AddWithValue("@ticket_id", ticket_id);
+                cmdUpdate.Parameters.AddWithValue("@categoria_id", DropDownListCategorias.SelectedIndex + 1);
+                cmdUpdate.Parameters.AddWithValue("@responsable_id", DropDownListResponsable.SelectedIndex + 1);
+                cmdUpdate.Parameters.AddWithValue("@solucionado", CheckBoxSolucionado.Checked);
+                cmdUpdate.Parameters.AddWithValue("@comentario_tecnico", TextBoxComentario.Text);
+
+                if (CheckBoxSolucionado.Checked)
+                {
+                    cmdUpdate.Parameters.AddWithValue("@fecha_solucionado", DateTime.Now);
+                }
+                else
+                {
+                    cmdUpdate.Parameters.AddWithValue("@fecha_solucionado", DBNull.Value);
+                }
+
+                conexionUpdateTicket.Open();
+                cmdUpdate.ExecuteNonQuery();
+
+                LabelExito.Text = "Ticket <strong>modificado</strong>";
+                PanelExito.Visible = true;
+            }
+
         }
     }
 }

@@ -33,44 +33,49 @@
         </div>
         <h2>Actualizar</h2>
 
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="DropDownListResponsable">Responsable:</label>
-                        <asp:SqlDataSource
-                            ID="SqlDataSourceResponsables" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:MyConnection%>"
-                            SelectCommand="SELECT responsable_id, nombre from responsables"></asp:SqlDataSource>
-                        <asp:DropDownList ID="DropDownListResponsable" runat="server" DataSourceID="SqlDataSourceResponsables" DataTextField="nombre" DataValueField="responsable_id" CssClass="form-control">
-                        </asp:DropDownList>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="DropDownListCategorias">Categoria:</label>
-                        <asp:SqlDataSource
-                            ID="SqlDataSourceCategorias" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:MyConnection%>"
-                            SelectCommand="SELECT categoria_id, categoria from categorias"></asp:SqlDataSource>
-                        <asp:DropDownList ID="DropDownListCategorias" runat="server" DataSourceID="SqlDataSourceCategorias" DataTextField="categoria" DataValueField="categoria_id" CssClass="form-control">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="TextBoxComentario">Comentario tecnico:</label>
-                        <asp:TextBox runat="server" ID="TextBoxComentario" CssClass="form-control" Rows="3" TextMode="MultiLine" />
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="CheckBoxSolucionado" class="control-label">Solucionado:</label><br />
-                            <asp:CheckBox ID="CheckBoxSolucionado" runat="server" />
-                        </div>
-                        <div class="form-group col-md-4">
-                            <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" CssClass="btn btn-default" />
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="DropDownListResponsable">Responsable:</label>
+                <asp:SqlDataSource
+                    ID="SqlDataSourceResponsables" runat="server"
+                    ConnectionString="<%$ ConnectionStrings:MyConnection%>"
+                    SelectCommand="SELECT responsable_id, nombre from responsables"></asp:SqlDataSource>
+                <asp:DropDownList ID="DropDownListResponsable" runat="server" DataSourceID="SqlDataSourceResponsables" DataTextField="nombre" DataValueField="responsable_id" CssClass="form-control">
+                </asp:DropDownList>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="DropDownListCategorias">Categoria:</label>
+                <asp:SqlDataSource
+                    ID="SqlDataSourceCategorias" runat="server"
+                    ConnectionString="<%$ ConnectionStrings:MyConnection%>"
+                    SelectCommand="SELECT categoria_id, categoria from categorias"></asp:SqlDataSource>
+                <asp:DropDownList ID="DropDownListCategorias" runat="server" DataSourceID="SqlDataSourceCategorias" DataTextField="categoria" DataValueField="categoria_id" CssClass="form-control">
+                </asp:DropDownList>
+            </div>
         </div>
-        <asp:Label ID="LabelError" runat="server" Text="Error:"></asp:Label>
 
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="TextBoxComentario">Comentario tecnico:</label>
+                <asp:TextBox runat="server" ID="TextBoxComentario" CssClass="form-control" Rows="3" TextMode="MultiLine" />
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="CheckBoxSolucionado" class="control-label">Solucionado:</label><br />
+                    <asp:CheckBox ID="CheckBoxSolucionado" runat="server" />
+                </div>
+                <div class="form-group col-md-4">
+                    <asp:Button ID="ButtonEnviar" runat="server" Text="Enviar" CssClass="btn btn-default" OnClick="ButtonEnviar_Click" />
+                </div>
+            </div>
+        </div>
 
+        <asp:Panel ID="PanelError" runat="server" CssClass="alert alert-warning" Visible="False">
+            <asp:Label ID="Label1" runat="server" Text="Error:"></asp:Label>
+        </asp:Panel>
+
+        <asp:Panel ID="PanelExito" runat="server" CssClass="alert alert-success" Visible="False">
+            <asp:Label ID="LabelExito" runat="server" Text="Error:"></asp:Label>
+        </asp:Panel>
     </div>
 </asp:Content>
