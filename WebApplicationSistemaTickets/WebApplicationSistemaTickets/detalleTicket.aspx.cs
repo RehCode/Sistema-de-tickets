@@ -61,7 +61,7 @@ namespace WebApplicationSistemaTickets
         {
             using (SqlConnection conexionUpdateTicket = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString))
             {
-
+                ticket_id = (int)Session["ticket_id"];
                 string query = "update tickets"
                 + " set categoria_id=@categoria_id, responsable_id=@responsable_id, solucionado=@solucionado, comentario_tecnico=@comentario_tecnico, fecha_solucionado=@fecha_solucionado"
                 + " where ticket_id=@ticket_id";
@@ -87,7 +87,9 @@ namespace WebApplicationSistemaTickets
 
                 LabelExito.Text = "Ticket <strong>modificado</strong>";
                 PanelExito.Visible = true;
+                
             }
+            Response.Redirect("Tickets.aspx");
 
         }
     }
