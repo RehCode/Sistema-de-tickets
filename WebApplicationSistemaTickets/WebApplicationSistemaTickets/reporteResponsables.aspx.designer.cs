@@ -13,22 +13,31 @@ namespace WebApplicationSistemaTickets {
     public partial class reporteResponsables {
         
         /// <summary>
-        /// Chart1 control.
+        /// ChartTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartTotal;
         
         /// <summary>
-        /// Chart2 control.
+        /// DropDownListMes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListMes;
+        
+        /// <summary>
+        /// ChartTotalMes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartTotalMes;
         
         /// <summary>
         /// SqlDataSourceResponsables control.
@@ -49,21 +58,30 @@ namespace WebApplicationSistemaTickets {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListResponsable;
         
         /// <summary>
-        /// Chart3 control.
+        /// lblPromedioMinutos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart3;
+        protected global::System.Web.UI.WebControls.Label lblPromedioMinutos;
         
         /// <summary>
-        /// Chart4 control.
+        /// ChartMesResponsable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart4;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartMesResponsable;
+        
+        /// <summary>
+        /// ChartCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartCategoria;
     }
 }

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-4">
             <h3>Totales</h3>
-            <asp:Chart ID="Chart1" runat="server">
+            <asp:Chart ID="ChartTotal" runat="server">
                 <Series>
                     <asp:Series Name="Series1">
                     </asp:Series>
@@ -22,8 +22,16 @@
             </asp:Chart>
         </div>
         <div class="col-md-4">
-            <h3>Frecuencia por semana</h3>
-            <asp:Chart ID="Chart2" runat="server">
+            <h3>Frecuencia por mes</h3>
+            <asp:DropDownList ID="DropDownListMes" runat="server">
+                <asp:ListItem Value="1">Enero</asp:ListItem>
+                <asp:ListItem Value="2">Febrero</asp:ListItem>
+                <asp:ListItem Value="3">Marzo</asp:ListItem>
+                <asp:ListItem Value="4">Mayo</asp:ListItem>
+                <asp:ListItem Value="5">Abril</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Button runat="server" Text="Mostrar" OnClick="ButtonMotrarMes_Click" />
+            <asp:Chart ID="ChartTotalMes" runat="server">
                 <Series>
                     <asp:Series Name="Series1">
                     </asp:Series>
@@ -45,20 +53,17 @@
                 SelectCommand="SELECT responsable_id, nombre from responsables"></asp:SqlDataSource>
             <asp:DropDownList ID="DropDownListResponsable" runat="server" DataSourceID="SqlDataSourceResponsables" DataTextField="nombre" DataValueField="responsable_id" CssClass="form-control">
             </asp:DropDownList>
-            <asp:Button Text="Mostrar" runat="server" />
+            <asp:Button Text="Mostrar" runat="server" OnClick="Unnamed1_Click" />
         </div>
     <div class="row">
         <div class="col-md-4">
-            <h4>Total de <strong>tickets</strong>: <span class="badge">170</span></h4>
-        </div>
-        <div class="col-md-4">
-            <h4>Promedio en <strong>minutos</strong> ticket resuelto: <span class="badge">38</span></h4>
+            <h4>Promedio en <strong>minutos</strong> ticket resuelto: <asp:Label Text="170" runat="server" CssClass="badge" ID="lblPromedioMinutos" /></h4>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <h3>Por mes</h3>
-            <asp:Chart ID="Chart3" runat="server">
+            <asp:Chart ID="ChartMesResponsable" runat="server">
                 <Series>
                     <asp:Series Name="Series1">
                     </asp:Series>
@@ -71,7 +76,7 @@
         </div>
         <div class="col-md-4">
             <h3>Por categoria</h3>
-            <asp:Chart ID="Chart4" runat="server">
+            <asp:Chart ID="ChartCategoria" runat="server">
                 <Series>
                     <asp:Series Name="Series1">
                     </asp:Series>
