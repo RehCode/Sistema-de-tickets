@@ -77,6 +77,7 @@ namespace WebApplicationSistemaTickets
                 ChartFinal.DataSource = tabla;
                 ChartFinal.Series[0].XValueMember = "categoria";
                 ChartFinal.Series[0].YValueMembers = "cantidad";
+                ChartFinal.Series[0].ChartType = SeriesChartType.Pie;
                 ChartFinal.ChartAreas[0].AxisX.Title = "Test TEst";
                 ChartFinal.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
                 ChartFinal.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
