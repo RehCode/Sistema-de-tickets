@@ -2,8 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderTitulo" runat="server">
+    <h1 class="page-header">Frecuencia de tickets</h1>
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2 class="sub-header">Frecuencia de tickets</h2>
     <div>
         <div class="row">
             <div class="col-md-4">
@@ -49,7 +53,7 @@
 
     </div>
     <div>
-        <h3 class="sub-header">Solucion en minutos por mes</h3>
+        <h1 class="page-header">Solucion en minutos por mes</h1>
         <div class="row">
             <div class="col-md-6">
                 <h3>Promedio</h3>

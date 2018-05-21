@@ -22,7 +22,6 @@
         </div>
         <div class="col-md-4">
             <h4>Promedio en <strong>minutos</strong> ticket resuelto: <span class="badge">38</span></h4>
-
         </div>
     </div>
     <div class="row">
